@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+    php:
+        image: php:7.2-apache
+        ports: 
+            - 8000:80
+        volumes: 
+            - ./www:/var/www/html
+    database:
+        image: mysql
+        environment: 
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: leamsigc
+            MYSQL_PASSWORD: password
+            MYSQL_DATABASE: password
+    php-admin:
+        image: phpmyadmin/phpmyadmin
+        ports: 
+            - 8001:80
